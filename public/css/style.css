@@ -1,0 +1,410 @@
+:root {
+    --alura: #0a3871;
+    --alura-dark: #0b2d5d;
+    --fondo: #f3f5fc;
+    --info: #6b7178;
+    --extra: #343a40;
+    --rojo: #f00;
+    --fuente: "Roboto-flex", sans-serif;
+    --transparencia: rgba(255, 255, 255, 0.95);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: var(--fuente);
+    box-sizing: border-box;
+}
+
+header{grid-area: header}
+main{
+    grid-area: main;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+footer{grid-area: footer}
+
+
+body{
+    background-color: var(--fondo);
+    padding: 0 1rem;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.max{
+    width: 100%;
+    max-width: 1000px;
+    height: 90%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    grid-template-rows: 1fr min-content;
+    grid-template-areas:
+        'header main'
+        'header footer';
+    text-align: center;
+}
+
+
+/* HEADER STYLES */
+
+#logo{
+    width: 30px;
+}
+
+
+/* MAIN STYLES */
+
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.botones{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+button, input{
+    text-decoration: none;
+    color:inherit;
+    font-size: inherit;
+    background-color: transparent;
+    outline:none;
+    border-width: 0px;
+}
+
+main button, input, #enviar{
+    padding: 1rem 1.4rem;
+    border-radius: .5rem;
+    cursor: pointer;
+    border-style: hidden;
+}
+
+input{
+    display:block;
+}
+
+#oculto input{
+    background-color: white;
+    color: var(--alura);
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+
+#oculto input::placeholder{
+    text-transform: none;
+}
+
+main #nuevo-juego, #enviar{
+    background-color: var(--alura);
+    color: var(--transparencia);
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+main #nuevo-juego:hover, #nuevo-juego:focus, #enviar:hover, #enviar:focus{
+    background-color: var(--alura-dark);
+    color:white;
+    outline: none;
+}
+
+main button{
+    color: var(--alura);
+    border: 1px solid var(--alura);
+}
+
+main button:hover, main button:focus{
+    background-color: white ;
+}
+
+#boton-borrar{
+    border: 1px solid transparent;
+    color: var(--info);
+    background-color: transparent;
+}
+
+#boton-borrar:hover,
+#boton-borrar:focus{
+    color: var(--alura-dark);
+}
+
+.botones>div{
+    display:flex;
+    flex-direction: column;
+}
+
+#oculto{
+    display: flex;
+    align-items: center;
+    gap:.5rem;
+    visibility: hidden;
+}
+
+#juego{
+    display:flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    display:none;
+    width: 100%;
+}
+
+/* 
+#menu{
+    display: none;
+} */
+
+/* FOOTER STYLES */
+
+footer p{
+    color:var(--info)    
+}
+
+footer p a{
+    display: inline-block;
+    color: var(--alura-dark);
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+footer p a{
+    color: var(--alura-dark);
+    font-weight: 600;
+}
+
+#palabra-a-adivinar{
+    width: 100%;
+    display:flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--alura);
+    gap:1rem;
+}
+
+#palabra-a-adivinar .letra{
+    flex: 0 0 2rem;
+    margin: 0 .25rem;
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--alura);
+    color: transparent;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+
+}
+
+#palabra-a-adivinar .espacio{
+    display: inline-block;
+    margin: 0 1rem;
+}
+
+label {
+    color: var(--info);
+    font-size: .9rem;
+}
+
+#el-input{
+    padding:2rem;
+    display: flex;
+    flex-direction: column;
+    gap:1rem;
+    align-items: center;
+}
+
+#adivinador{
+    max-width: 4rem;
+    border: 2px solid var(--alura-dark);
+    text-align: center;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+@media screen and (max-width: 500px) {
+    body{
+        align-items: flex-start;
+        padding-top:5vh;
+    }
+    .max{
+        grid-template-columns: 1fr;
+        grid-template-rows: min-content 1fr min-content;
+        grid-template-areas:
+            'header'
+            'main'
+            'footer';
+        height: 80%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* header{grid-area: header;}
+main{grid-area: main}
+section{grid-area: section}
+footer{grid-area: footer}
+
+footer a, .letter, main{
+    color: var(--alura);
+}
+
+body{
+    background-color: var(--fondo);
+    width: 100%;
+    padding:1rem;
+}
+
+.max{
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    justify-items: center;
+    grid-template-columns: min-content 1fr;
+    grid-template-rows: 1fr auto auto min-content;
+    grid-template-areas:
+        'header main'
+        'header section'
+        'header footer';
+    gap:1rem;
+}
+
+canvas{
+    border: 1px solid var(--extra);
+    border-radius: .5rem;
+    grid-area: dibujo;
+    width: 100%;
+    height: 100%;
+}
+
+#palabra{
+    grid-area: palabra;
+    min-height: 3rem;
+    margin: 2rem;
+    display:flex;
+    justify-content: center;
+    gap:1rem;
+    font-size: 3rem;
+}
+
+#palabra span{
+    border-bottom: 3px solid var(--alura);
+}
+
+#letters{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+form{grid-area: formulario}
+
+.letter{
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    font-weight: 600;
+    opacity: .2;
+}
+
+
+#logo{
+    width: 30px;
+}
+
+
+main{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        'dibujo palabra'
+        'dibujo formulario';
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+form{
+    display:grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    margin:1rem
+}
+
+form label{
+    margin: .5rem;
+}
+form input[type="submit"]{
+    margin: 1rem;
+}
+
+footer a{
+    font-weight: 600;
+    text-decoration: none;
+}
+
+footer{
+    color:var(--info);
+}
+
+@media screen and (max-width:550px){
+    .max{
+        grid-template-columns: 1fr;
+        grid-template-rows: min-content 1fr auto min-content;
+        grid-template-areas:
+            'header'
+            'main'
+            'section'
+            'footer';
+    }
+
+    main{
+        font-weight: 400;
+    }
+
+    #palabra{
+        font-weight: 500;
+    }
+} */
